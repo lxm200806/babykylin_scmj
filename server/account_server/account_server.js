@@ -21,10 +21,6 @@ exports.start = function(cfg){
 	console.log("account server is listening on " + config.CLIENT_PORT);
 }
 
-
-
-
-
 //设置跨域访问
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
