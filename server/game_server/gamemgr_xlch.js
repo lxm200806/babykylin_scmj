@@ -1209,24 +1209,24 @@ exports.begin = function(roomId) {
     var seats = roomInfo.seats;
 
     var game = {
-        conf:roomInfo.conf,
-        roomInfo:roomInfo,
-        gameIndex:roomInfo.numOfGames,
+        conf:roomInfo.conf,             //游戏/房间的规则配置
+        roomInfo:roomInfo,              //房间的详细信息
+        gameIndex:roomInfo.numOfGames,  //游戏的局数
 
-        button:roomInfo.nextButton,
-        mahjongs:new Array(108),
-        currentIndex:0,
-        gameSeats:new Array(4),
+        button:roomInfo.nextButton,     //
+        mahjongs:new Array(108),        //麻将牌
+        currentIndex:0,                 //该摸麻将牌的下标
+        gameSeats:new Array(4),         //游戏座位
 
-        numOfQue:0,
-        turn:0,
-        chuPai:-1,
-        state:"idle",
-        firstHupai:-1,
-        yipaoduoxiang:-1,
-        fangpaoshumu:-1,
-        actionList:[],
-        chupaiCnt:0,
+        numOfQue:0,                     //定缺的数量
+        turn:0,                         //
+        chuPai:-1,                      //
+        state:"idle",                   //游戏状态
+        firstHupai:-1,                  //
+        yipaoduoxiang:-1,               //
+        fangpaoshumu:-1,                //
+        actionList:[],                  //
+        chupaiCnt:0,                    //
     };
 
     roomInfo.numOfGames++;
@@ -2200,7 +2200,6 @@ exports.hasBegan = function(roomId){
     return false;
 };
 
-
 var dissolvingList = [];
 
 exports.doDissolve = function(roomId){
@@ -2266,8 +2265,6 @@ exports.dissolveAgree = function(roomId,userId,agree){
     }
     return roomInfo;
 };
-
-
 
 function update() {
     for(var i = dissolvingList.length - 1; i >= 0; --i){

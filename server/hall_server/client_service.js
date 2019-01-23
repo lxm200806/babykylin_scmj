@@ -64,6 +64,7 @@ app.get('/login',function(req,res){
 		};
 
 		db.get_room_id_of_user(data.userid,function(roomId){
+			
 			//如果用户处于房间中，则需要对其房间进行检查。 如果房间还在，则通知用户进入
 			if(roomId != null){
 				//检查房间是否存在于数据库中

@@ -132,6 +132,7 @@ function deal(game){
 
     //庄家多摸最后一张
     mopai(game,game.button);
+    
     //当前轮设置为庄家
     game.turn = game.button;
 }
@@ -1177,7 +1178,6 @@ exports.begin = function(roomId) {
         return;
     }
     var seats = roomInfo.seats;
-
     var game = {
         conf:roomInfo.conf,
         roomInfo:roomInfo,
@@ -1275,18 +1275,18 @@ exports.begin = function(roomId) {
         gameSeatsOfUsers[data.userId] = data;
     }
     games[roomId] = game;
+
     //洗牌
     shuffle(game);
     //发牌
     deal(game);
 
-    
-
     var numOfMJ = game.mahjongs.length - game.currentIndex;
     var huansanzhang = roomInfo.conf.hsz;
 
+    //开局时，通知前端必要的数据
     for(var i = 0; i < seats.length; ++i){
-        //开局时，通知前端必要的数据
+       
         var s = seats[i];
         //通知玩家手牌
         userMgr.sendMsg(s.userId,'game_holds_push',game.gameSeats[i].holds);

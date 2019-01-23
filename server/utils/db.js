@@ -145,7 +145,6 @@ exports.is_user_exist = function(account,callback){
     });  
 }
 
-
 exports.get_user_data = function(account,callback){
     callback = callback == null? nop:callback;
     if(account == null){
@@ -474,7 +473,6 @@ exports.get_room_id_of_user = function(userId,callback){
         }
     });
 };
-
 
 exports.create_room = function(roomId,conf,ip,port,create_time,callback){
     callback = callback == null? nop:callback;
